@@ -118,3 +118,45 @@
 	"arvore.h"
 	"lista.h"
 
+1499980660 source:c:\users\jhones\onedrive\ed2017-trab2_v6\bitmap\bitmap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"bitmap.h"
+
+1499980660 c:\users\jhones\onedrive\ed2017-trab2_v6\bitmap\bitmap.h
+
+1500049352 source:c:\users\jhones\onedrive\ed2017-trab2_v6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"compacta.h"
+	"descompacta.h"
+
+1499980660 c:\users\jhones\onedrive\ed2017-trab2_v6\compacta.h
+
+1500033470 c:\users\jhones\onedrive\ed2017-trab2_v6\descompacta.h
+	"arvore.h"
+
+1500049716 c:\users\jhones\onedrive\ed2017-trab2_v6\arvore.h
+
+1500049806 source:c:\users\jhones\onedrive\ed2017-trab2_v6\tadarvore.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arvore.h"
+
+1500033470 source:c:\users\jhones\onedrive\ed2017-trab2_v6\taddescompacta.c
+	<stdio.h>
+	<stdlib.h>
+	"arvore.h"
+	"descompacta.h"
+	"bitmap/bitmap.h"
+
+1500049832 source:c:\users\jhones\onedrive\ed2017-trab2_v6\tadcompacta.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"compacta.h"
+	"arvore.h"
+

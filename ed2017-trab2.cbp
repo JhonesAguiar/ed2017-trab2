@@ -47,7 +47,6 @@
 		<Unit filename="bitmap/bitmap.h" />
 		<Unit filename="compacta.h" />
 		<Unit filename="descompacta.h" />
-		<Unit filename="entrada" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
