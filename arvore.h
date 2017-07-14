@@ -17,15 +17,12 @@ Arv* CriaNo(int peso, Arv* esq, Arv* dir);
 * inputs: o operando
 * output: o endereço do nó raiz criado
 */
-Arv* CriaFolha(int peso, char c);
+Arv* CriaFolha(int peso, unsigned char c);
 
 /*Imprime a árvore em notação InOrder (esq, raiz, direita)
 * inputs: o endereço da raiz da árvore
 * output: nenhum
 */
-
-//void Conta(Arv* arv);
-
 void Imprime(Arv* arv);
 
 /* Libera memória alocada pela estrutura da árvore
@@ -56,5 +53,13 @@ int Folhas(Arv* arv);
 * output: a altura da árvore
 */
 int Altura(Arv* arv);
+
+Arv* AcessarAtributoEsquerda(Arv* arv);
+
+Arv* AcessarAtributoDireita(Arv* arv);
+
+void GravarAtributoEsquerda(Arv* arv, Arv* esquerda);
+
+void GravarAtributoDireita(Arv* arv, Arv* direita);
 
 #endif // ARVORE_H_INCLUDED

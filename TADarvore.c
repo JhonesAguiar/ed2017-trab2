@@ -50,7 +50,7 @@ Arv* CriaNo(int peso, Arv* esquerda, Arv* direita)
     return a;
 }
 
-Arv* CriaFolha(int peso, char c)
+Arv* CriaFolha(int peso, unsigned char c)
 {
     Arv* a = (Arv*)malloc(sizeof(Arv));
     a->info = (Folha*)malloc(sizeof(Folha));
@@ -65,40 +65,24 @@ Arv* CriaFolha(int peso, char c)
 
     return a;
 }
-/*
-void Conta(Arv* arv)
-{
-    if(arv != NULL)
-    {
-        if(arv->tipo == 0)
-        {
-            printf("%d ", ((No*)arv->info)->peso);
-            Conta(arv->esquerda);
 
-            Conta(arv->direita);
-        }
-        else
-        {
-            printf("%d ", ((Folha*)arv->info)->peso);
-            printf("%c ", ((Folha*)arv->info)->c);
-        }
-    }
-}
-*/
 void Imprime(Arv* arv)
 {
     if(arv != NULL)
     {
         if(arv->tipo == 0)
         {
-            printf("0 ");
+            printf("%d \n", ((No*)arv->info)->peso);
+            printf("Esquerda: ");
             Imprime(arv->esquerda);
+            printf(" Direita: ");
             Imprime(arv->direita);
         }
         else
         {
-            printf("1 ");
-            printf("%i ", ((Folha*)arv->info)->c);
+            printf("%d ", ((Folha*)arv->info)->peso);
+            printf("Caracter ");
+            printf("%c ", ((Folha*)arv->info)->c);
         }
     }
 }
@@ -237,3 +221,27 @@ int Altura(Arv* arv)
 
     return altura;
 }
+
+Arv* AcessarAtributoEsquerda(Arv* arv)
+{
+    return arv->esquerda;
+}
+
+Arv* AcessarAtributoDireita(Arv* arv)
+{
+    return arv->direita;
+}
+
+void GravarAtributoEsquerda(Arv* arv, Arv* esquerda)
+{
+    arv->esquerda = esquerda;
+}
+
+void GravarAtributoDireita(Arv* arv, Arv* direita)
+{
+    arv->direita = direita;
+}
+
+
+
+

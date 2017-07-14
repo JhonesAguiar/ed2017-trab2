@@ -18,12 +18,11 @@ void inicia_vetor(int *v)
 void ler_caracteres(FILE *arq, int *v)
 {
     unsigned char c[1];
-    int i;
     while(!feof(arq))
     {
         //fread vai ler byte a byte do arquivo binario
-        i=fread(c,sizeof(c),1,arq);
-        if(i == 1) v[c[0]]++;
+        fread(c,sizeof(c),1,arq);
+        v[c[0]]++;
         //conta quantas vezes aquele byte se repete no arquivo
     }
 }
@@ -45,7 +44,6 @@ int caracteres_usados(int *v)
 
 //Essa função vai gerar um vetor onde cada posição do vetor é uma folha da arvore de codificação,
 //A árvore vai ser gerada a partir desse vetor
-
 Arv** gera_folhas(int *v, int k)
 {
     int i,j=0;
@@ -78,21 +76,11 @@ int compara (const void* v1, const void* v2)
     else return 0;
 }
 
-int RemoveArvVet(Arv **arv,int ultm){
-    int i;
-    ultm --;
-    for(i=0;i<=ultm;i++){
-        arv[i] = arv[i+1];
-    }
-    arv[ultm+1]=0;
-    return ultm;
-}
-
 //por enquanto a função que faz tudo e nada simultaneamente.
 void gera_arvore(int *v)
 {
     //int i;
-    int k,peso;
+    int k;
     Arv **folhas;
     k = caracteres_usados(v);
 
@@ -100,28 +88,12 @@ void gera_arvore(int *v)
 
     qsort(folhas,k,sizeof(Arv*),compara);
 
-    int ultm=k-1;
-    while(ultm > 0){
-        peso = RetornaPeso(folhas[0]) + RetornaPeso(folhas[1]);
-
-        Arv *a = CriaNo(peso,folhas[0],folhas[1]);
-
-        ultm = RemoveArvVet(folhas,ultm);
-        ultm = RemoveArvVet(folhas,ultm);
-
-        ultm++;
-        folhas[ultm] = a;
-
-        qsort(folhas,ultm+1,sizeof(Arv*),compara);
-    }
-
-    Imprime(folhas[0]);
-/*
+    /*
         for(i=0;i<k;i++){
             printf("%i: ",i+1);
             Imprime(folhas[i]);
             printf("\n");
         }
-*/
+    */
 
 }

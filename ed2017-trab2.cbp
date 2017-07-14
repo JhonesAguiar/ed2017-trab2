@@ -37,12 +37,17 @@
 		<Unit filename="TADcompacta.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="TADdescompacta.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="arvore.h" />
 		<Unit filename="bitmap/bitmap.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="bitmap/bitmap.h" />
 		<Unit filename="compacta.h" />
+		<Unit filename="descompacta.h" />
+		<Unit filename="entrada" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
