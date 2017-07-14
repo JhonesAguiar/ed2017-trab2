@@ -86,15 +86,15 @@
 
 1499899460 c:\users\jhones\onedrive\ed2017-trab2_v4\bitmap\bitmap.h
 
-1499958659 source:c:\users\jhones\onedrive\ed2017-trab2_v4\tadarvore.c
+1499990654 source:c:\users\jhones\onedrive\ed2017-trab2_v4\tadarvore.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"arvore.h"
 
-1499958780 c:\users\jhones\onedrive\ed2017-trab2_v4\arvore.h
+1499985073 c:\users\jhones\onedrive\ed2017-trab2_v4\arvore.h
 
-1499958836 source:c:\users\jhones\onedrive\ed2017-trab2_v4\tadcompacta.c
+1499989311 source:c:\users\jhones\onedrive\ed2017-trab2_v4\tadcompacta.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -103,9 +103,18 @@
 
 1499958780 c:\users\jhones\onedrive\ed2017-trab2_v4\compacta.h
 
-1499971611 source:c:\users\jhones\onedrive\ed2017-trab2_v4\main.c
+1499990664 source:c:\users\jhones\onedrive\ed2017-trab2_v4\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"compacta.h"
+
+1499981365 c:\users\jhones\onedrive\ed2017-trab2_v4\lista.h
+
+1499982219 source:c:\users\jhones\onedrive\ed2017-trab2_v4\tadlista.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arvore.h"
+	"lista.h"
 

@@ -22,7 +22,7 @@ int main(int agrc, char *argv[])
                    return 1;
                 }
         */
-        entrada = fopen("TADcompacta.c", "rb");
+        entrada = fopen("entrada", "rb");
 
         if (entrada == NULL)
         {

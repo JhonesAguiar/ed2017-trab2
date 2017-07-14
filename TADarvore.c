@@ -65,21 +65,40 @@ Arv* CriaFolha(int peso, char c)
 
     return a;
 }
+/*
+void Conta(Arv* arv)
+{
+    if(arv != NULL)
+    {
+        if(arv->tipo == 0)
+        {
+            printf("%d ", ((No*)arv->info)->peso);
+            Conta(arv->esquerda);
 
+            Conta(arv->direita);
+        }
+        else
+        {
+            printf("%d ", ((Folha*)arv->info)->peso);
+            printf("%c ", ((Folha*)arv->info)->c);
+        }
+    }
+}
+*/
 void Imprime(Arv* arv)
 {
     if(arv != NULL)
     {
         if(arv->tipo == 0)
         {
+            printf("0 ");
             Imprime(arv->esquerda);
-            printf("%d ", ((No*)arv->info)->peso);
             Imprime(arv->direita);
         }
         else
         {
-            printf("%d ", ((Folha*)arv->info)->peso);
-            printf("%c ", ((Folha*)arv->info)->c);
+            printf("1 ");
+            printf("%i ", ((Folha*)arv->info)->c);
         }
     }
 }

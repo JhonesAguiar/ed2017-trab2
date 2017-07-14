@@ -23,6 +23,9 @@ Arv* CriaFolha(int peso, char c);
 * inputs: o endereço da raiz da árvore
 * output: nenhum
 */
+
+//void Conta(Arv* arv);
+
 void Imprime(Arv* arv);
 
 /* Libera memória alocada pela estrutura da árvore
