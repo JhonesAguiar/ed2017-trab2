@@ -65,26 +65,6 @@ Arv* CriaFolha(int peso, unsigned char c)
 
     return a;
 }
-/*
-void Conta(Arv* arv)
-{
-    if(arv != NULL)
-    {
-        if(arv->tipo == 0)
-        {
-            printf("%d ", ((No*)arv->info)->peso);
-            Conta(arv->esquerda);
-
-            Conta(arv->direita);
-        }
-        else
-        {
-            printf("%d ", ((Folha*)arv->info)->peso);
-            printf("%c ", ((Folha*)arv->info)->c);
-        }
-    }
-}
-*/
 
 void Imprime(Arv* arv)
 {
@@ -103,24 +83,6 @@ void Imprime(Arv* arv)
             printf("%d ", ((Folha*)arv->info)->peso);
             printf("Caracter ");
             printf("%c ", ((Folha*)arv->info)->c);
-        }
-    }
-}
-
-void ImprimeArvCodificada(Arv* arv)
-{
-    if(arv != NULL)
-    {
-        if(arv->tipo == 0)
-        {
-            printf("0 ");
-            ImprimeArvCodificada(arv->esquerda);
-            ImprimeArvCodificada(arv->direita);
-        }
-        else
-        {
-            printf("1 ");
-            printf("%i ", ((Folha*)arv->info)->c);
         }
     }
 }
@@ -279,3 +241,7 @@ void GravarAtributoDireita(Arv* arv, Arv* direita)
 {
     arv->direita = direita;
 }
+
+
+
+
