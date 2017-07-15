@@ -1,1 +1,2 @@
 https://stackoverflow.com/questions/15510507/open-a-png-file-and-read-its-hex-values-in-c
+https://stackoverflow.com/questions/5309471/getting-file-extension-in-c

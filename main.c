@@ -6,7 +6,7 @@
 
 int main(int agrc, char *argv[])
 {
-    int x = 1;
+    int x = 0;
     if(/*strcmp(argv[0],"./Compacta")*/x == 0)
     {
         FILE *entrada;
@@ -24,7 +24,9 @@ int main(int agrc, char *argv[])
                    return 1;
                 }
         */
-        entrada = fopen("entrada", "rb");
+        char nomeArquivo[] = "entrada.txt";
+
+        entrada = fopen(nomeArquivo, "rb");
 
         if (entrada == NULL)
         {
@@ -47,7 +49,7 @@ int main(int agrc, char *argv[])
         }
         */
 
-        gera_arvore(v);
+        gera_arvore(v,nomeArquivo);
 
 
         return 0;

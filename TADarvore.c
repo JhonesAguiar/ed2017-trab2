@@ -275,7 +275,7 @@ int AcessarTipo(Arv* arv)
     return arv->tipo;
 }
 
-int AcessarCaracter(Arv* arv)
+unsigned int AcessarCaracter(Arv* arv)
 {
     return ((Folha*)arv->info)->c;
 }

@@ -64,7 +64,7 @@ Arv* AcessarAtributoDireita(Arv* arv);
 
 int AcessarTipo(Arv* arv);
 
-int AcessarCaracter(Arv* arv);
+unsigned int AcessarCaracter(Arv* arv);
 
 void GravarAtributoEsquerda(Arv* arv, Arv* esquerda);
 
