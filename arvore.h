@@ -23,6 +23,10 @@ Arv* CriaFolha(int peso, unsigned char c);
 * inputs: o endereço da raiz da árvore
 * output: nenhum
 */
+
+//void Conta(Arv* arv);
+void ImprimeArvCodificada(Arv* arv);
+
 void Imprime(Arv* arv);
 
 /* Libera memória alocada pela estrutura da árvore
@@ -58,8 +62,13 @@ Arv* AcessarAtributoEsquerda(Arv* arv);
 
 Arv* AcessarAtributoDireita(Arv* arv);
 
+int AcessarTipo(Arv* arv);
+
+int AcessarCaracter(Arv* arv);
+
 void GravarAtributoEsquerda(Arv* arv, Arv* esquerda);
 
 void GravarAtributoDireita(Arv* arv, Arv* direita);
+
 
 #endif // ARVORE_H_INCLUDED

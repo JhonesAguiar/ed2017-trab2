@@ -16,7 +16,7 @@ void CriaArvoreAPartirBits(Arv* arv, bitmap* bm, unsigned int* posicaoAtual, int
 
     if(*posicaoAtual < maxTamVet)
     {
-        if(bitmapGetBit(*bm, *posicaoAtual) == 0)
+        if(bitmapGetBit(*bm, *posicaoAtual) == 0b00000000)
         {
             GravarAtributoEsquerda(arv, CriaNo(0, NULL, NULL));
             *posicaoAtual = *posicaoAtual + 1;
@@ -43,7 +43,7 @@ void CriaArvoreAPartirBits(Arv* arv, bitmap* bm, unsigned int* posicaoAtual, int
 
         if(*posicaoAtual < maxTamVet)
         {
-            if(bitmapGetBit(*bm, *posicaoAtual) == 0)
+            if(bitmapGetBit(*bm, *posicaoAtual) == 0b00000000)
             {
                 printf("\nTeste\n");
                 GravarAtributoDireita(arv, CriaNo(0, NULL, NULL));
@@ -70,27 +70,73 @@ void CriaArvoreAPartirBits(Arv* arv, bitmap* bm, unsigned int* posicaoAtual, int
     }
 }
 
-Arv* DescompactaArquivo(unsigned char vet[], unsigned int maxTamBitmap, int maxTamVet)
+void CriaTextoAPartirBits(unsigned char* texto, Arv* arv, bitmap bm, int tamanhoTextoCodificado)
 {
     unsigned int posicaoAtual;
+    unsigned char bitAtual;
+    int tamanhoAtualTexto;
+
+    tamanhoAtualTexto = 0;
+
+    Arv* noAtual = arv;
+
+    for(posicaoAtual = 0; posicaoAtual < tamanhoTextoCodificado; posicaoAtual = posicaoAtual + 1)
+    {
+        printf("Posicao atual: %d\n", posicaoAtual);
+        bitAtual = bitmapGetBit(bm, posicaoAtual);
+
+        if(bitAtual == 0b00000000)
+        {
+            noAtual = AcessarAtributoEsquerda(noAtual);
+        }
+        else
+        {
+            noAtual = AcessarAtributoDireita(noAtual);
+        }
+
+        if(AcessarTipo(noAtual) == 1)
+        {
+            texto[tamanhoAtualTexto] = AcessarCaracter(noAtual);
+            tamanhoAtualTexto++;
+            noAtual = arv;
+        }
+    }
+}
+
+Arv* DescompactaArquivo(unsigned char vetArvore[], unsigned char vetTexto[], unsigned int maxTamBitmap, int maxTamVet, int maxTamTexto, int tamanhoTextoCodificado)
+{
+    unsigned int posicaoAtual;
+    unsigned char* texto;
 
     Arv* arv = CriaVazia();
 
     arv = CriaNo(0, NULL, NULL);
 
-    bitmap bm = bitmapInit(maxTamBitmap);
+    texto = malloc(sizeof(unsigned char)*6);
+
+    bitmap bmArvore = bitmapInit(maxTamBitmap);
+    bitmap bmTexto = bitmapInit(maxTamBitmap);
 
     for(posicaoAtual = 0; posicaoAtual < maxTamVet; posicaoAtual++)
     {
-        bitmapAppendLeastSignificantBit(&bm, vet[posicaoAtual]);
+        bitmapAppendLeastSignificantBit(&bmArvore, vetArvore[posicaoAtual]);
     }
 
     posicaoAtual = 1;
 
-    CriaArvoreAPartirBits(arv, &bm, &posicaoAtual, maxTamVet);
+    CriaArvoreAPartirBits(arv, &bmArvore, &posicaoAtual, maxTamVet);
 
     printf("\n");
     Imprime(arv);
+
+    for(posicaoAtual = 0; posicaoAtual < tamanhoTextoCodificado; posicaoAtual++)
+    {
+        bitmapAppendLeastSignificantBit(&bmTexto, vetTexto[posicaoAtual]);
+    }
+
+    CriaTextoAPartirBits(texto, arv, bmTexto, tamanhoTextoCodificado);
+
+    printf("Texto: %s", texto);
 
     return arv;
 }
