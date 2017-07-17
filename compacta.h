@@ -5,6 +5,6 @@ void inicia_vetor(int *v);
 
 void ler_caracteres(FILE *arq, int *v);
 
-void gera_arvore(int *v, char *nome);
+void gera_arvore(int *v);
 
 #endif // COMPACTA_H_INCLUDED

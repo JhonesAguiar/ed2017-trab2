@@ -65,26 +65,6 @@ Arv* CriaFolha(int peso, unsigned char c)
 
     return a;
 }
-/*
-void Conta(Arv* arv)
-{
-    if(arv != NULL)
-    {
-        if(arv->tipo == 0)
-        {
-            printf("%d ", ((No*)arv->info)->peso);
-            Conta(arv->esquerda);
-
-            Conta(arv->direita);
-        }
-        else
-        {
-            printf("%d ", ((Folha*)arv->info)->peso);
-            printf("%c ", ((Folha*)arv->info)->c);
-        }
-    }
-}
-*/
 
 void Imprime(Arv* arv)
 {
@@ -145,69 +125,6 @@ Arv* Libera(Arv* arv)
 
     return NULL;
 }
-
-/*
-float RealizaOperacao(int a, int b, char operacao)
-{
-    float resultado = 0;
-
-    if(operacao == '+')
-    {
-        resultado = a + b;
-
-        return resultado;
-    }
-
-    if(operacao == '-')
-    {
-        resultado = a - b;
-
-        return resultado;
-    }
-
-    if(operacao == '*')
-    {
-        resultado = a * b;
-
-    return resultado;
-    }
-
-    if(operacao == '/')
-    {
-        resultado = a / b;
-
-        return resultado;
-    }
-
-    return resultado;
-}
-*/
-
-/*
-float Avalia(Arv* arv)
-{
-    float resultado = 0;
-    float num1 = 0;
-    float num2 = 0;
-
-    if(arv != NULL)
-    {
-        if(arv->tipo == 0)
-        {
-            num1 = Avalia(((No*)arv->info)->esquerda);
-            num2 = Avalia(((No*)arv->info)->direita);
-
-            resultado = RealizaOperacao(num1, num2, ((No*)arv->info)->operador);
-        }
-        else
-        {
-            resultado = ((Folha*)arv->info)->num;
-        }
-    }
-
-    return resultado;
-}
-*/
 
 int Folhas(Arv* arv)
 {
@@ -275,7 +192,7 @@ int AcessarTipo(Arv* arv)
     return arv->tipo;
 }
 
-unsigned int AcessarCaracter(Arv* arv)
+unsigned char AcessarCaracter(Arv* arv)
 {
     return ((Folha*)arv->info)->c;
 }
