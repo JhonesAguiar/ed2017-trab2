@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "bitmap/bitmap.h"
 #include "arvore.h"
 
 typedef struct no No;
@@ -65,6 +66,26 @@ Arv* CriaFolha(int peso, unsigned char c)
 
     return a;
 }
+/*
+void Conta(Arv* arv)
+{
+    if(arv != NULL)
+    {
+        if(arv->tipo == 0)
+        {
+            printf("%d ", ((No*)arv->info)->peso);
+            Conta(arv->esquerda);
+
+            Conta(arv->direita);
+        }
+        else
+        {
+            printf("%d ", ((Folha*)arv->info)->peso);
+            printf("%c ", ((Folha*)arv->info)->c);
+        }
+    }
+}
+*/
 
 void Imprime(Arv* arv)
 {
@@ -126,6 +147,69 @@ Arv* Libera(Arv* arv)
     return NULL;
 }
 
+/*
+float RealizaOperacao(int a, int b, char operacao)
+{
+    float resultado = 0;
+
+    if(operacao == '+')
+    {
+        resultado = a + b;
+
+        return resultado;
+    }
+
+    if(operacao == '-')
+    {
+        resultado = a - b;
+
+        return resultado;
+    }
+
+    if(operacao == '*')
+    {
+        resultado = a * b;
+
+    return resultado;
+    }
+
+    if(operacao == '/')
+    {
+        resultado = a / b;
+
+        return resultado;
+    }
+
+    return resultado;
+}
+*/
+
+/*
+float Avalia(Arv* arv)
+{
+    float resultado = 0;
+    float num1 = 0;
+    float num2 = 0;
+
+    if(arv != NULL)
+    {
+        if(arv->tipo == 0)
+        {
+            num1 = Avalia(((No*)arv->info)->esquerda);
+            num2 = Avalia(((No*)arv->info)->direita);
+
+            resultado = RealizaOperacao(num1, num2, ((No*)arv->info)->operador);
+        }
+        else
+        {
+            resultado = ((Folha*)arv->info)->num;
+        }
+    }
+
+    return resultado;
+}
+*/
+
 int Folhas(Arv* arv)
 {
     int qtd = 0;
@@ -177,6 +261,51 @@ int Altura(Arv* arv)
     return altura;
 }
 
+int BuscaCaracter(Arv *arv, void *bm, unsigned char c){
+    bitmap *bmcod = (bitmap*)bm;
+    if(arv->tipo == 0){
+        if(BuscaCaracter(arv->esquerda,bmcod,c) == 1){
+            bitmapAppendLeastSignificantBit(bmcod,0b00000000);
+            return 1;
+        }else if(BuscaCaracter(arv->direita,bmcod,c) == 1){
+            bitmapAppendLeastSignificantBit(bmcod,0b00000001);
+            return 1;
+        }
+    }else{
+        if(((Folha*)arv->info)->c == c) return 1;
+        else return 0;
+    }
+    return 0;
+}
+/*
+    char aux[8]="";
+    if(arv != NULL)
+    {
+        if(arv->tipo == 0)
+        {
+            aux[i]='0';
+            aux[i+1]='\0';
+            i++;
+
+            BuscaCaracter(arv->esquerda,aux,c,i);
+            i--;
+
+            aux[i]='1';
+            aux[i+1]='\0';
+            i++;
+
+            BuscaCaracter(arv->direita,aux,c,i);
+            i--;
+        }
+        else
+        {
+            if((((Folha*)arv->info)->c) == c){
+                strcpy(cod,aux);
+            }
+        }
+    }
+*/
+
 Arv* AcessarAtributoEsquerda(Arv* arv)
 {
     return arv->esquerda;
@@ -192,7 +321,7 @@ int AcessarTipo(Arv* arv)
     return arv->tipo;
 }
 
-unsigned char AcessarCaracter(Arv* arv)
+unsigned int AcessarCaracter(Arv* arv)
 {
     return ((Folha*)arv->info)->c;
 }
